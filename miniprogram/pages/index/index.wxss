@@ -185,25 +185,20 @@
 
 .wave-layer {
   position: absolute;
-  left: 50%; top: 46%;
-  transform: translate(-50%, -50%) scale(0.96);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 10;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22,1,0.36,1);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(0.98);
 }
 
 .wave-layer--visible {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.hero-wait {
-  margin-top: 12rpx;
-  font-size: 24rpx;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.38);
-  letter-spacing: 0.12em;
+  transform: scale(1);
 }
 
 @keyframes fade-up {

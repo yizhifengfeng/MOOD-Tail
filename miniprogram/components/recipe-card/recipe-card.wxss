@@ -1,0 +1,311 @@
+/* 咖啡风味卡式 · 情绪配方 */
+
+.recipe-card {
+  position: relative;
+  border-radius: 28rpx;
+  overflow: hidden;
+  background: linear-gradient(
+    155deg,
+    rgba(32, 28, 48, 0.92) 0%,
+    rgba(14, 14, 22, 0.96) 45%,
+    rgba(8, 8, 14, 0.98) 100%
+  );
+  box-shadow:
+    0 28rpx 72rpx rgba(0, 0, 0, 0.55),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.08);
+}
+
+.recipe-card__border {
+  position: absolute;
+  inset: 0;
+  border-radius: 28rpx;
+  pointer-events: none;
+  border: 2rpx solid rgba(168, 85, 247, 0.28);
+  box-shadow:
+    0 0 48rpx var(--accent-glow, rgba(168, 85, 247, 0.18)),
+    inset 0 0 60rpx rgba(168, 85, 247, 0.06);
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.recipe-card__body {
+  position: relative;
+  z-index: 3;
+  padding: 36rpx 28rpx 32rpx;
+  box-sizing: border-box;
+}
+
+.recipe-card__inner-dots {
+  position: absolute;
+  left: 18rpx;
+  right: 18rpx;
+  top: 128rpx;
+  bottom: 22rpx;
+  border-radius: 20rpx;
+  border: 1rpx dashed rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.recipe-card__header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 8rpx;
+}
+
+.recipe-card__title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.recipe-card__deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  margin-top: 18rpx;
+}
+
+.recipe-card__deco-line {
+  width: 80rpx;
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, var(--accent, #a855f7), transparent);
+  opacity: 0.75;
+}
+
+.recipe-card__deco-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--accent, #a855f7);
+  box-shadow: 0 0 24rpx var(--accent-glow, rgba(168, 85, 247, 0.45));
+}
+
+.recipe-card__sep {
+  position: relative;
+  z-index: 1;
+  height: 1rpx;
+  margin: 26rpx 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.14) 25%,
+    rgba(255, 255, 255, 0.14) 75%,
+    transparent
+  );
+  opacity: 0.65;
+}
+
+.recipe-card__sep--dotted {
+  border-top: none;
+  border-bottom: none;
+  height: 1rpx;
+  margin: 28rpx 0 20rpx;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 0,
+    rgba(255, 255, 255, 0.2) 6rpx,
+    transparent 6rpx,
+    transparent 12rpx
+  );
+  opacity: 0.45;
+}
+
+.recipe-card__row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 24rpx;
+}
+
+.recipe-card__label {
+  flex-shrink: 0;
+  width: 72rpx;
+  font-size: 22rpx;
+  color: rgba(200, 198, 220, 0.55);
+  letter-spacing: 0.12em;
+  padding-top: 6rpx;
+}
+
+.recipe-card__main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+}
+
+.recipe-card__serif {
+  font-family: var(--font-serif, Georgia, 'Noto Serif SC', serif);
+}
+
+.recipe-card__strong {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.96);
+  line-height: 1.28;
+}
+
+.recipe-card__text {
+  font-size: 26rpx;
+  line-height: 1.58;
+  color: rgba(220, 218, 235, 0.72);
+}
+
+/* —— 三列风味（咖啡风味卡） —— */
+.recipe-card__notes-section {
+  position: relative;
+  z-index: 1;
+  margin-top: 4rpx;
+}
+
+.recipe-card__notes-kicker {
+  display: block;
+  font-size: 20rpx;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.38);
+  text-align: center;
+  margin-bottom: 20rpx;
+  text-transform: uppercase;
+}
+
+.recipe-card__notes-grid {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 18rpx;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1rpx solid rgba(255, 255, 255, 0.06);
+}
+
+.recipe-card__note-col {
+  flex: 1;
+  min-width: 0;
+  padding: 22rpx 14rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12rpx;
+  box-sizing: border-box;
+}
+
+.recipe-card__note-col--mid {
+  border-left: 1rpx dashed rgba(255, 255, 255, 0.12);
+  border-right: 1rpx dashed rgba(255, 255, 255, 0.12);
+}
+
+.recipe-card__note-badge {
+  font-size: 20rpx;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.42);
+  padding: 4rpx 10rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.recipe-card__note-name {
+  display: block;
+  width: 100%;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.35;
+}
+
+.recipe-card__note-desc {
+  display: block;
+  width: 100%;
+  font-size: 20rpx;
+  line-height: 1.45;
+  color: rgba(180, 178, 200, 0.62);
+}
+
+.recipe-card__bottom-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 28rpx;
+  align-items: flex-start;
+}
+
+.recipe-card__info-item {
+  flex-shrink: 0;
+  min-width: 160rpx;
+}
+
+.recipe-card__info-item--conc {
+  flex: 1;
+  min-width: 0;
+}
+
+.recipe-card__row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.recipe-card__row-head .recipe-card__label {
+  width: auto;
+}
+
+.recipe-card__accent {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--accent, #a855f7);
+}
+
+.recipe-card__percent {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.recipe-card__bar-track {
+  height: 10rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.recipe-card__bar-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(
+    90deg,
+    var(--accent, #a855f7),
+    rgba(255, 255, 255, 0.35)
+  );
+  box-shadow: 0 0 16rpx var(--accent-glow, rgba(168, 85, 247, 0.35));
+  transition: width 0.45s ease;
+}
+
+.recipe-card__footer {
+  position: relative;
+  z-index: 1;
+  padding-top: 6rpx;
+}
+
+.recipe-card__summary {
+  display: block;
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: rgba(190, 188, 210, 0.58);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.recipe-card__summary--italic {
+  font-style: italic;
+}

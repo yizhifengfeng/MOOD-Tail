@@ -47,7 +47,6 @@
           />
         </view>
       </view>
-      <text class="hero-wait" wx:if="{{!isAnalyzing}}">Wait to put</text>
     </view>
 
     <view class="section section--input">

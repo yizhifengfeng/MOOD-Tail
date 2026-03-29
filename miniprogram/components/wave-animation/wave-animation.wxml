@@ -1,6 +1,23 @@
-<view class="wave-animation wave-animation--{{ dirClass }} {{ active ? 'wave-animation--active' : '' }}">
-  <view class="wave-animation__layer wave-animation__layer--1" />
-  <view class="wave-animation__layer wave-animation__layer--2" />
-  <view class="wave-animation__layer wave-animation__layer--3" />
-  <view wx:if="{{ active && statusText }}" class="wave-animation__text">{{ statusText }}</view>
+<!-- 分析态 · 柔化 Siri 波纹 + 呼吸核 + 微动气流 + 渐亮粒子 -->
+<view class="sense sense--{{ dirClass }} {{ active ? 'sense--active' : '' }}">
+  <view class="sense__vignette" />
+  <view class="sense__ripples">
+    <view class="sense__ring sense__ring--1" />
+    <view class="sense__ring sense__ring--2" />
+    <view class="sense__ring sense__ring--3" />
+    <view class="sense__ring sense__ring--4" />
+  </view>
+  <view class="sense__core">
+    <view class="sense__bloom sense__bloom--a" />
+    <view class="sense__bloom sense__bloom--b" />
+    <view class="sense__bloom sense__bloom--c" />
+    <view class="sense__core-ring" />
+  </view>
+  <block wx:for="{{particles}}" wx:key="id">
+    <view
+      class="sense__particle"
+      style="left: {{ item.x }}%; top: {{ item.y }}%; animation-delay: {{ item.d }}s; animation-duration: {{ item.dur }}s;"
+    />
+  </block>
+  <view wx:if="{{ active && statusText }}" class="sense__caption">{{ statusText }}</view>
 </view>

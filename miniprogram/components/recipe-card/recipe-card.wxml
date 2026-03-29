@@ -1,6 +1,7 @@
 <view class="recipe-card" style="--accent: {{accentColor}}; --accent-glow: {{accentGlow}};">
   <view class="recipe-card__border"></view>
   <view class="recipe-card__body">
+    <view class="recipe-card__inner-dots" aria-hidden="true"></view>
     <view class="recipe-card__header">
       <text class="recipe-card__title">你的情绪配方</text>
       <view class="recipe-card__deco">
@@ -20,23 +21,26 @@
       </view>
     </view>
 
-    <view class="recipe-card__sep"></view>
+    <view class="recipe-card__sep recipe-card__sep--dotted"></view>
 
-    <view class="recipe-card__notes-grid">
-      <view class="recipe-card__note-col">
-        <text class="recipe-card__label">前调</text>
-        <text class="recipe-card__serif recipe-card__strong">{{topIngredient}}</text>
-        <text class="recipe-card__text recipe-card__muted-sm">{{topMood}}</text>
-      </view>
-      <view class="recipe-card__note-col">
-        <text class="recipe-card__label">中调</text>
-        <text class="recipe-card__serif recipe-card__strong">{{midIngredient}}</text>
-        <text class="recipe-card__text recipe-card__muted-sm">{{midMood}}</text>
-      </view>
-      <view class="recipe-card__note-col">
-        <text class="recipe-card__label">尾调</text>
-        <text class="recipe-card__serif recipe-card__strong">{{tailIngredient}}</text>
-        <text class="recipe-card__text recipe-card__muted-sm">{{tailMood}}</text>
+    <view class="recipe-card__notes-section">
+      <text class="recipe-card__notes-kicker">风味层次</text>
+      <view class="recipe-card__notes-grid">
+        <view class="recipe-card__note-col">
+          <view class="recipe-card__note-badge">前调</view>
+          <text class="recipe-card__serif recipe-card__note-name">{{topIngredient}}</text>
+          <text class="recipe-card__note-desc">{{topMood}}</text>
+        </view>
+        <view class="recipe-card__note-col recipe-card__note-col--mid">
+          <view class="recipe-card__note-badge">中调</view>
+          <text class="recipe-card__serif recipe-card__note-name">{{midIngredient}}</text>
+          <text class="recipe-card__note-desc">{{midMood}}</text>
+        </view>
+        <view class="recipe-card__note-col">
+          <view class="recipe-card__note-badge">尾调</view>
+          <text class="recipe-card__serif recipe-card__note-name">{{tailIngredient}}</text>
+          <text class="recipe-card__note-desc">{{tailMood}}</text>
+        </view>
       </view>
     </view>
 
@@ -61,7 +65,7 @@
     <view class="recipe-card__sep"></view>
 
     <view class="recipe-card__footer">
-      <text class="recipe-card__summary">{{summary}}</text>
+      <text class="recipe-card__summary recipe-card__summary--italic">{{summary}}</text>
     </view>
   </view>
 </view>
