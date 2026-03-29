@@ -1,0 +1,110 @@
+<view class="page" style="--accent: {{accentColor}}; --accent-rgb: {{accentRgb}};">
+  <view class="nav" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+    <view class="nav__inner">
+      <view class="nav__btn" bindtap="onBack" aria-role="button" aria-label="返回">
+        <text class="nav__icon">←</text>
+      </view>
+      <view class="nav__spacer"></view>
+      <view class="nav__btn" bindtap="onCloseToIndex" aria-role="button" aria-label="关闭">
+        <text class="nav__icon nav__icon--close">×</text>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view
+    class="scroll"
+    scroll-y
+    enhanced
+    show-scrollbar="{{false}}"
+    style="padding-top: {{navBarHeight}}px;"
+  >
+    <view class="scroll__pad">
+      <view class="hero {{titleVisible ? 'hero--visible' : ''}}">
+        <text class="hero__title">{{cocktailName}}</text>
+        <text class="hero__en" wx:if="{{cocktailNameEn}}">{{cocktailNameEn}}</text>
+      </view>
+
+      <view class="emotion-line" wx:if="{{emotionText}}">
+        <text class="emotion-line__text">{{emotionText}}</text>
+      </view>
+
+      <view class="viz">
+        <view class="viz__tabs">
+          <view
+            class="viz__tab {{currentStyle === 0 ? 'viz__tab--on' : ''}}"
+            data-index="0"
+            bindtap="onTabStyle"
+          >玻璃瓶</view>
+          <view
+            class="viz__tab {{currentStyle === 1 ? 'viz__tab--on' : ''}}"
+            data-index="1"
+            bindtap="onTabStyle"
+          >调酒杯</view>
+          <view
+            class="viz__tab {{currentStyle === 2 ? 'viz__tab--on' : ''}}"
+            data-index="2"
+            bindtap="onTabStyle"
+          >流体</view>
+        </view>
+
+        <view class="viz__stage">
+          <!-- Style 1: Glass bottle -->
+          <view class="viz__panel" wx:if="{{currentStyle === 0}}">
+            <view class="bottle">
+              <view class="bottle__shine"></view>
+              <view class="bottle__neck"></view>
+              <view class="bottle__body">
+                <view class="bottle__liquid"></view>
+                <view class="bottle__label">
+                  <text class="bottle__label-small">MOOD TAIL</text>
+                  <text class="bottle__label-name">{{cocktailName}}</text>
+                </view>
+              </view>
+              <view class="bottle__base"></view>
+            </view>
+          </view>
+
+          <!-- Style 2: Cocktail glass -->
+          <view class="viz__panel" wx:if="{{currentStyle === 1}}">
+            <view class="glass">
+              <view class="glass__stem"></view>
+              <view class="glass__bowl">
+                <view class="glass__liquid">
+                  <view class="glass__wave glass__wave--1"></view>
+                  <view class="glass__wave glass__wave--2"></view>
+                </view>
+                <view class="glass__rim"></view>
+                <view class="glass__spark glass__spark--a"></view>
+                <view class="glass__spark glass__spark--b"></view>
+                <view class="glass__spark glass__spark--c"></view>
+              </view>
+            </view>
+          </view>
+
+          <!-- Style 3: Fluid blob -->
+          <view class="viz__panel viz__panel--fluid" wx:if="{{currentStyle === 2}}">
+            <view class="fluid">
+              <view class="fluid__glow"></view>
+              <view class="fluid__blob fluid__blob--1"></view>
+              <view class="fluid__blob fluid__blob--2"></view>
+              <view class="fluid__blob fluid__blob--3"></view>
+              <view class="fluid__ring"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="recipe-wrap">
+        <recipe-card recipe="{{recipe}}" direction="{{direction}}" />
+      </view>
+
+      <view class="scroll__bottom-spacer"></view>
+    </view>
+  </scroll-view>
+
+  <view class="action-bar" style="padding-bottom: calc(24rpx + {{safeAreaBottom}}px);">
+    <button class="action action--primary" bindtap="onSaveCocktail">保存到酒单</button>
+    <button class="action action--secondary" bindtap="onMixAnother">再调一杯</button>
+    <button class="action action--share" open-type="share">分享</button>
+  </view>
+</view>

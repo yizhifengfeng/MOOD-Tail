@@ -1,0 +1,20 @@
+<view class="wave-animation wave-animation--{{paletteDirection}} {{active ? 'wave-animation--active' : ''}}">
+  <view class="wave-animation__stage">
+    <view class="wave-animation__rings" aria-hidden="true">
+      <view class="wave-animation__ring wave-animation__ring--1"></view>
+      <view class="wave-animation__ring wave-animation__ring--2"></view>
+      <view class="wave-animation__ring wave-animation__ring--3"></view>
+      <view class="wave-animation__ring wave-animation__ring--4"></view>
+      <view class="wave-animation__ring wave-animation__ring--5"></view>
+    </view>
+    <view class="wave-animation__glow-core"></view>
+    <canvas
+      class="wave-animation__canvas"
+      canvas-id="waveParticles"
+      disable-scroll="{{true}}"
+    ></canvas>
+  </view>
+  <view class="wave-animation__status {{statusFadeClass}}">
+    <text class="wave-animation__status-text">{{displayStatusText}}</text>
+  </view>
+</view>

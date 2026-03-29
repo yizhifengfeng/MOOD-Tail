@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mood-calendar": "/components/mood-calendar/mood-calendar"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light"
+}
