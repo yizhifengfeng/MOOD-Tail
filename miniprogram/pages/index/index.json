@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "cocktail-glass": "/components/cocktail-glass/cocktail-glass",
-    "emotion-slider": "/components/emotion-slider/emotion-slider",
-    "wave-animation": "/components/wave-animation/wave-animation"
-  },
-  "navigationStyle": "custom"
-}
