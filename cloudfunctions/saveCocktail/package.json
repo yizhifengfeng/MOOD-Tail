@@ -1,9 +1,0 @@
-{
-  "name": "saveCocktail",
-  "version": "1.0.0",
-  "description": "保存特调到用户酒单",
-  "main": "index.js",
-  "dependencies": {
-    "wx-server-sdk": "~2.6.3"
-  }
-}

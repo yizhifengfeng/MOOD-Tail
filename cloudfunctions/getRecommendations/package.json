@@ -1,9 +1,0 @@
-{
-  "name": "getRecommendations",
-  "version": "1.0.0",
-  "description": "根据用户历史生成个性化推荐",
-  "main": "index.js",
-  "dependencies": {
-    "wx-server-sdk": "~2.6.3"
-  }
-}
