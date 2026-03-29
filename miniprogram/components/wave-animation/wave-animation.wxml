@@ -1,23 +1,31 @@
-<!-- 分析态 · 柔化 Siri 波纹 + 呼吸核 + 微动气流 + 渐亮粒子 -->
-<view class="sense sense--{{ dirClass }} {{ active ? 'sense--active' : '' }}">
-  <view class="sense__vignette" />
+<!-- 分析态 · 透明背景 · 情绪色水波浪球 + 波纹 + 粒子 -->
+<view class="sense {{ active ? 'sense--active' : '' }}">
   <view class="sense__ripples">
-    <view class="sense__ring sense__ring--1" />
-    <view class="sense__ring sense__ring--2" />
-    <view class="sense__ring sense__ring--3" />
-    <view class="sense__ring sense__ring--4" />
+    <view class="sense__ring sense__ring--1" style="border-color: {{ringBorder}};" />
+    <view class="sense__ring sense__ring--2" style="border-color: {{ringBorder}};" />
+    <view class="sense__ring sense__ring--3" style="border-color: {{ringBorder}};" />
+    <view class="sense__ring sense__ring--4" style="border-color: {{ringBorder}};" />
   </view>
-  <view class="sense__core">
-    <view class="sense__bloom sense__bloom--a" />
-    <view class="sense__bloom sense__bloom--b" />
-    <view class="sense__bloom sense__bloom--c" />
-    <view class="sense__core-ring" />
-  </view>
+
   <block wx:for="{{particles}}" wx:key="id">
     <view
       class="sense__particle"
-      style="left: {{ item.x }}%; top: {{ item.y }}%; animation-delay: {{ item.d }}s; animation-duration: {{ item.dur }}s;"
+      style="left: {{ item.x }}%; top: {{ item.y }}%; animation-delay: {{ item.d }}s; animation-duration: {{ item.dur }}s; background: {{particleBg}}; box-shadow: {{particleShadow}};"
     />
   </block>
+
+  <view class="wave-ball-wrap">
+    <view class="wave-ball" style="box-shadow: {{sphereShadow}};">
+      <view class="wave-ball__body" style="background: {{sphereStyle}};">
+        <view class="wave-ball__waves">
+          <view class="wave-ball__wave wave-ball__wave--1" style="background: {{waveBandA}};" />
+          <view class="wave-ball__wave wave-ball__wave--2" style="background: {{waveBandB}};" />
+          <view class="wave-ball__wave wave-ball__wave--3" style="background: {{waveBandC}};" />
+        </view>
+        <view class="wave-ball__spec" />
+      </view>
+    </view>
+  </view>
+
   <view wx:if="{{ active && statusText }}" class="sense__caption">{{ statusText }}</view>
 </view>

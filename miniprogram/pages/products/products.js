@@ -1,3 +1,15 @@
+const PRODUCT_CDN_BASE =
+  'https://user5950.cn.imgto.link/public/20260329/product-'
+
+/** 第 1 张对应 product-01，第 15 张对应 product-12，中间线性插值 */
+function productImageByNumericId(id) {
+  const n = parseInt(String(id), 10)
+  if (!Number.isFinite(n) || n < 1) return ''
+  const idx = Math.min(15, Math.max(1, n))
+  const fileNum = Math.round(1 + ((idx - 1) * 11) / 14)
+  return `${PRODUCT_CDN_BASE}${String(fileNum).padStart(2, '0')}.avif`
+}
+
 const MOCK_PRODUCTS = [
   {
     id: '1',
@@ -204,9 +216,15 @@ function normalizeProduct(p) {
   const tags = Array.isArray(p.emotion_tags)
     ? p.emotion_tags
     : [direction, direction === 'bright' ? '明亮' : direction === 'calm' ? '平静' : '深沉'];
+  const id = String(p.id != null ? p.id : '');
+  const rawImg = p.image != null ? String(p.image) : '';
+  const image =
+    rawImg && /^https?:\/\//i.test(rawImg)
+      ? rawImg
+      : productImageByNumericId(id);
   return {
-    id: String(p.id != null ? p.id : ''),
-    image: p.image || '',
+    id,
+    image,
     name: p.name || '',
     nameEn: p.nameEn || '',
     category: p.category || '',

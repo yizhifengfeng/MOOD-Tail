@@ -2,7 +2,10 @@
   <view class="glass-stage">
     <view class="glass-outer">
       <view class="glass-rim"></view>
-      <view class="glass-bowl {{isAnalyzing ? 'glass-bowl--active' : ''}}">
+      <view
+        class="glass-bowl {{isAnalyzing ? 'glass-bowl--active' : ''}}"
+        style="border-color: {{bowlBorder}};"
+      >
         <view class="glass-highlight glass-highlight--left"></view>
         <view class="glass-highlight glass-highlight--right"></view>
 

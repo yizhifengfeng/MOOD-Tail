@@ -10,9 +10,7 @@ Page({
     // Emotion state
     emotionText: '',
     sliderValue: 50,
-    isRandomText: false,
-    textConfirmed: false,
-    _randomSnapshot: '',
+    heroWaitLine: 'Wait to put',
     // Analysis state
     isAnalyzing: false,
     analysisProgress: 0,
@@ -73,14 +71,15 @@ Page({
     if (this.data.isAnalyzing) return
     const trimmed = (this.data.emotionText || '').trim()
     let t = 'Wait to input'
+    let heroWaitLine = 'Wait to put'
     if (!trimmed) {
       t = 'Wait to input'
-    } else if (this.data.isRandomText && !this.data.textConfirmed) {
-      t = '确认文案后即可开始调制'
+      heroWaitLine = 'Wait to put'
     } else {
-      t = '准备就绪 · 轻触开始调制'
+      t = '准备就绪 · 轻触开始特调'
+      heroWaitLine = 'Ready when you are'
     }
-    this.setData({ statusText: t })
+    this.setData({ statusText: t, heroWaitLine })
   },
 
 // Login
@@ -115,28 +114,10 @@ Page({
   onTextInput(e) {
     const text = e.detail.value
     const hasText = text.trim().length > 0
-    let isRandomText = this.data.isRandomText
-    const snapshot = this.data._randomSnapshot || ''
-    if (isRandomText && text !== snapshot) {
-      isRandomText = false
-    }
-
-    let textConfirmed = false
-    let canStartMixing = false
-    if (hasText) {
-      if (isRandomText) {
-        textConfirmed = this.data.textConfirmed
-        canStartMixing = this.data.textConfirmed
-      } else {
-        textConfirmed = true
-        canStartMixing = true
-      }
-    }
+    const canStartMixing = hasText
 
     this.setData({
       emotionText: text,
-      isRandomText,
-      textConfirmed,
       canStartMixing
     })
 
@@ -174,21 +155,9 @@ Page({
     const text = emotion.getRandomText(this.data.sliderValue)
     this.setData({
       emotionText: text,
-      isRandomText: true,
-      textConfirmed: false,
-      canStartMixing: false,
-      _randomSnapshot: text
-    })
-    this.updatePreviewEmotion(text)
-    this.syncGlassStatus()
-  },
-
-  // Confirm random text
-  handleConfirmRandom() {
-    this.setData({
-      textConfirmed: true,
       canStartMixing: true
     })
+    this.updatePreviewEmotion(text)
     this.syncGlassStatus()
   },
 

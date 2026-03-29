@@ -1,9 +1,10 @@
+/* Align with emotion-slider track: Negative #6c5ce7 → teal #4ecdc4 → Positive #feca57 */
 const STOPS = {
   deep: {
-    main: '#A855F7',
-    light: '#C084FC',
-    dark: '#7C3AED',
-    glowA: 'rgba(168, 85, 247, 0.52)',
+    main: '#6C5CE7',
+    light: '#A29BFE',
+    dark: '#4834A0',
+    glowA: 'rgba(108, 92, 231, 0.52)',
   },
   calm: {
     main: '#4ECDC4',
@@ -12,10 +13,10 @@ const STOPS = {
     glowA: 'rgba(78, 205, 196, 0.5)',
   },
   bright: {
-    main: '#FF9F43',
-    light: '#FFC078',
-    dark: '#E07820',
-    glowA: 'rgba(255, 159, 67, 0.55)',
+    main: '#FECA57',
+    light: '#FFE08A',
+    dark: '#E8A838',
+    glowA: 'rgba(254, 202, 87, 0.55)',
   },
 }
 
@@ -117,6 +118,7 @@ Component({
     liquidColor: STOPS.calm.main,
     liquidLight: STOPS.calm.light,
     liquidDark: STOPS.calm.dark,
+    bowlBorder: 'rgba(255, 255, 255, 0.2)',
     glowGradient:
       'radial-gradient(ellipse at center, rgba(78, 205, 196, 0.5) 0%, transparent 70%)',
     efiWaveTier: 'mid',
@@ -158,11 +160,12 @@ Component({
       const fluctuation = normFluctuation(this.properties.fluctuation)
 
       let efiWaveTier = 'mid'
-      if (fluctuation < 34) efiWaveTier = 'gentle'
-      else if (fluctuation > 66) efiWaveTier = 'intense'
+      if (fluctuation < 38) efiWaveTier = 'gentle'
+      else if (fluctuation > 68) efiWaveTier = 'intense'
 
       const glowOpacity = 0.12 + (intensity / 100) * 0.62
       const glowGradient = `radial-gradient(ellipse at center, ${hexToRgba(liq.main, 0.48)} 0%, transparent 72%)`
+      const bowlBorder = hexToRgba(liq.main, this.properties.isAnalyzing ? 0.52 : 0.4)
 
       this._bubbleMain = liq.main
       this._bubbleLight = liq.light
@@ -171,6 +174,7 @@ Component({
         liquidColor: liq.main,
         liquidLight: liq.light,
         liquidDark: liq.dark,
+        bowlBorder,
         glowGradient,
         efiWaveTier,
         glowOpacity,

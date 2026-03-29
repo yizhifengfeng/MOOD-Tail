@@ -31,22 +31,26 @@
   <view class="page-content">
     <view class="hero-glass">
       <view class="hero-glass__frame">
-        <cocktail-glass
-          sliderValue="{{sliderValue}}"
-          direction="{{emotionDirection}}"
-          intensity="{{emotionIntensity}}"
-          fluctuation="{{emotionFluctuation}}"
-          isAnalyzing="{{isAnalyzing}}"
-          statusText="{{statusText}}"
-        />
+        <view class="hero-glass__cup {{isAnalyzing ? 'hero-glass__cup--hidden' : ''}}">
+          <cocktail-glass
+            sliderValue="{{sliderValue}}"
+            direction="{{emotionDirection}}"
+            intensity="{{emotionIntensity}}"
+            fluctuation="{{emotionFluctuation}}"
+            isAnalyzing="{{isAnalyzing}}"
+            statusText="{{statusText}}"
+          />
+        </view>
         <view class="wave-layer {{isAnalyzing ? 'wave-layer--visible' : ''}}">
           <wave-animation
             active="{{isAnalyzing}}"
             direction="{{emotionDirection}}"
+            sliderValue="{{sliderValue}}"
             statusText="{{statusText}}"
           />
         </view>
       </view>
+      <text class="hero-wait-line" wx:if="{{!isAnalyzing}}">{{heroWaitLine}}</text>
     </view>
 
     <view class="section section--input">
@@ -66,9 +70,6 @@
         <view class="chat-bubble__meta">
           <text class="chat-bubble__hint">MOOD Tail 会为你调制一杯专属特调</text>
         </view>
-        <view class="chat-bubble__confirm" wx:if="{{isRandomText && !textConfirmed && !isAnalyzing}}">
-          <button class="btn-confirm-inline" hover-class="btn-confirm-inline--hover" bindtap="handleConfirmRandom">确认这段描述</button>
-        </view>
       </view>
     </view>
 
@@ -85,11 +86,11 @@
           bindtap="handleRandomGenerate"
         >随机生成</button>
         <button
-          class="btn btn-primary btn-half btn-primary--glow {{canStartMixing && !isAnalyzing ? '' : 'btn-disabled'}}"
+          class="btn btn-primary btn-half btn-primary--glow {{canStartMixing && !isAnalyzing ? 'btn-primary--lit' : 'btn-disabled'}}"
           hover-class="btn-primary--hover"
           disabled="{{!canStartMixing || isAnalyzing}}"
           bindtap="handleStartMixing"
-        >开始调制</button>
+        >开始特调</button>
       </view>
     </view>
   </view>

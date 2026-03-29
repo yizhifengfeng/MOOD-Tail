@@ -1,4 +1,4 @@
-/* 情绪感知态：柔波纹 · 呼吸 · 微流 · 粒子渐亮 */
+/* 分析态：全透明底 · 情绪色水波浪球 · 柔波纹 · 高亮粒子 */
 
 .sense {
   position: absolute;
@@ -6,32 +6,21 @@
   right: 0;
   top: 0;
   bottom: 0;
-  overflow: hidden;
+  overflow: visible;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.55s ease;
+  background: transparent;
 }
 
 .sense--active {
   opacity: 1;
 }
 
-.sense__vignette {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(
-    ellipse 85% 80% at 50% 46%,
-    rgba(10, 8, 18, 0) 0%,
-    rgba(10, 8, 18, 0.35) 55%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
-}
-
 .sense__ripples {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
 }
 
 .sense__ring {
@@ -42,7 +31,8 @@
   border-radius: 50%;
   border-width: 2rpx;
   border-style: solid;
-  animation: sense-ripple 5.2s ease-in-out infinite;
+  animation: sense-ripple 6.8s ease-in-out infinite;
+  background: transparent;
 }
 
 .sense__ring--1 {
@@ -55,280 +45,220 @@
   width: 290rpx;
   height: 290rpx;
   animation-delay: 0.75s;
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
 .sense__ring--3 {
   width: 380rpx;
   height: 380rpx;
   animation-delay: 1.45s;
-  opacity: 0.72;
+  opacity: 0.76;
 }
 
 .sense__ring--4 {
   width: 470rpx;
   height: 470rpx;
   animation-delay: 2.1s;
-  opacity: 0.55;
-}
-
-.sense--deep .sense__ring {
-  border-color: rgba(168, 85, 247, 0.22);
-}
-
-.sense--calm .sense__ring {
-  border-color: rgba(78, 205, 196, 0.2);
-}
-
-.sense--bright .sense__ring {
-  border-color: rgba(255, 159, 67, 0.22);
+  opacity: 0.6;
 }
 
 @keyframes sense-ripple {
   0%,
   100% {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.94);
     opacity: 0.08;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.04);
-    opacity: 0.34;
+    transform: translate(-50%, -50%) scale(1.02);
+    opacity: 0.32;
   }
 }
 
-.sense__core {
+/* 水波浪球 */
+.wave-ball-wrap {
   position: absolute;
   left: 50%;
   top: 46%;
-  z-index: 3;
-  width: 240rpx;
-  height: 240rpx;
-  margin-left: -120rpx;
-  margin-top: -120rpx;
-  animation: sense-airflow 10s ease-in-out infinite;
+  z-index: 4;
+  width: 220rpx;
+  height: 220rpx;
+  margin-left: -110rpx;
+  margin-top: -110rpx;
+  animation: wave-ball-airflow 12s ease-in-out infinite;
 }
 
-@keyframes sense-airflow {
+@keyframes wave-ball-airflow {
   0%,
   100% {
     transform: translate(0, 0);
   }
   28% {
-    transform: translate(8rpx, -10rpx);
+    transform: translate(5rpx, -6rpx);
   }
   55% {
-    transform: translate(-6rpx, 8rpx);
+    transform: translate(-4rpx, 5rpx);
   }
   78% {
-    transform: translate(4rpx, 5rpx);
+    transform: translate(3rpx, 3rpx);
   }
 }
 
-.sense__bloom {
-  position: absolute;
+.wave-ball {
+  width: 220rpx;
+  height: 220rpx;
   border-radius: 50%;
-  animation: sense-breathe 4.8s ease-in-out infinite;
+  position: relative;
+  animation: wave-ball-breathe 5.2s ease-in-out infinite;
 }
 
-.sense__bloom--a {
-  width: 120rpx;
-  height: 120rpx;
-  left: 50%;
-  top: 50%;
-  margin: -60rpx 0 0 -60rpx;
-  animation-delay: 0s;
+@keyframes wave-ball-breathe {
+  0%,
+  100% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1.02);
+  }
 }
 
-.sense__bloom--b {
-  width: 160rpx;
-  height: 160rpx;
-  left: 50%;
-  top: 50%;
-  margin: -80rpx 0 0 -80rpx;
+.wave-ball__body {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wave-ball__waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 58%;
+  overflow: hidden;
+  border-radius: 0 0 50% 50%;
+}
+
+.wave-ball__wave {
+  position: absolute;
+  left: -40%;
+  width: 180%;
+  height: 52rpx;
+  border-radius: 50%;
+  opacity: 0.72;
+}
+
+.wave-ball__wave--1 {
+  bottom: 8%;
+  animation: wave-surface-a 2.8s ease-in-out infinite;
+}
+
+.wave-ball__wave--2 {
+  bottom: 22%;
+  opacity: 0.58;
+  animation: wave-surface-b 3.4s ease-in-out infinite;
   animation-delay: 0.4s;
-  opacity: 0.85;
 }
 
-.sense__bloom--c {
-  width: 88rpx;
-  height: 88rpx;
-  left: 50%;
-  top: 50%;
-  margin: -44rpx 0 0 -44rpx;
-  animation-delay: 0.85s;
-  opacity: 0.7;
+.wave-ball__wave--3 {
+  bottom: 36%;
+  opacity: 0.48;
+  animation: wave-surface-c 2.2s ease-in-out infinite;
+  animation-delay: 0.2s;
 }
 
-.sense--deep .sense__bloom--a {
-  background: radial-gradient(
-    circle at 42% 40%,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(192, 132, 252, 0.55) 38%,
-    rgba(126, 34, 206, 0.15) 65%,
-    transparent 76%
-  );
-  box-shadow: 0 0 60rpx rgba(168, 85, 247, 0.45);
-}
-
-.sense--deep .sense__bloom--b {
-  background: radial-gradient(
-    circle at 55% 58%,
-    rgba(216, 180, 254, 0.35) 0%,
-    rgba(139, 92, 246, 0.25) 45%,
-    transparent 70%
-  );
-}
-
-.sense--deep .sense__bloom--c {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.5) 0%, transparent 62%);
-}
-
-.sense--calm .sense__bloom--a {
-  background: radial-gradient(
-    circle at 42% 40%,
-    rgba(255, 255, 255, 0.32) 0%,
-    rgba(126, 232, 220, 0.5) 40%,
-    rgba(45, 212, 191, 0.12) 68%,
-    transparent 78%
-  );
-  box-shadow: 0 0 56rpx rgba(78, 205, 196, 0.42);
-}
-
-.sense--calm .sense__bloom--b {
-  background: radial-gradient(
-    circle at 55% 58%,
-    rgba(167, 243, 232, 0.3) 0%,
-    rgba(45, 212, 191, 0.22) 48%,
-    transparent 72%
-  );
-}
-
-.sense--calm .sense__bloom--c {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.48) 0%, transparent 62%);
-}
-
-.sense--bright .sense__bloom--a {
-  background: radial-gradient(
-    circle at 42% 40%,
-    rgba(255, 255, 255, 0.38) 0%,
-    rgba(255, 200, 120, 0.52) 40%,
-    rgba(255, 140, 50, 0.14) 68%,
-    transparent 78%
-  );
-  box-shadow: 0 0 56rpx rgba(255, 159, 67, 0.45);
-}
-
-.sense--bright .sense__bloom--b {
-  background: radial-gradient(
-    circle at 55% 58%,
-    rgba(255, 214, 160, 0.35) 0%,
-    rgba(255, 159, 67, 0.24) 48%,
-    transparent 72%
-  );
-}
-
-.sense--bright .sense__bloom--c {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.52) 0%, transparent 62%);
-}
-
-@keyframes sense-breathe {
+@keyframes wave-surface-a {
   0%,
   100% {
-    transform: scale(0.92);
-    opacity: 0.55;
+    transform: translateX(-6%) rotate(-1deg);
   }
   50% {
-    transform: scale(1.08);
-    opacity: 1;
+    transform: translateX(8%) rotate(1.2deg);
   }
 }
 
-.sense__core-ring {
+@keyframes wave-surface-b {
+  0%,
+  100% {
+    transform: translateX(5%) translateY(2rpx);
+  }
+  50% {
+    transform: translateX(-10%) translateY(-3rpx);
+  }
+}
+
+@keyframes wave-surface-c {
+  0%,
+  100% {
+    transform: translateX(4%) scaleX(1.02);
+  }
+  50% {
+    transform: translateX(-7%) scaleX(0.98);
+  }
+}
+
+.wave-ball__spec {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 112rpx;
-  height: 112rpx;
-  margin: -56rpx 0 0 -56rpx;
+  left: 14%;
+  top: 16%;
+  width: 42%;
+  height: 22%;
   border-radius: 50%;
-  border: 1rpx solid rgba(255, 255, 255, 0.22);
-  animation: sense-core-ring 2.8s ease-in-out infinite;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: 4;
+  animation: wave-spec-drift 6s ease-in-out infinite;
 }
 
-.sense--deep .sense__core-ring {
-  border-color: rgba(196, 181, 253, 0.35);
-  box-shadow: 0 0 28rpx rgba(168, 85, 247, 0.35);
-}
-
-.sense--calm .sense__core-ring {
-  border-color: rgba(167, 243, 232, 0.3);
-  box-shadow: 0 0 24rpx rgba(78, 205, 196, 0.32);
-}
-
-.sense--bright .sense__core-ring {
-  border-color: rgba(255, 214, 160, 0.35);
-  box-shadow: 0 0 26rpx rgba(255, 159, 67, 0.35);
-}
-
-@keyframes sense-core-ring {
+@keyframes wave-spec-drift {
   0%,
   100% {
-    transform: scale(0.92);
-    opacity: 0.55;
+    opacity: 0.85;
+    transform: translate(0, 0);
   }
   50% {
-    transform: scale(1.08);
     opacity: 1;
+    transform: translate(4rpx, 3rpx);
   }
 }
 
+/* 背景粒子：更大、更亮，颜色由内联 style 绑定情绪色 */
 .sense__particle {
   position: absolute;
-  z-index: 4;
-  width: 6rpx;
-  height: 6rpx;
-  margin: -3rpx 0 0 -3rpx;
+  z-index: 2;
+  width: 9rpx;
+  height: 9rpx;
+  margin: -4.5rpx 0 0 -4.5rpx;
   border-radius: 50%;
   animation-name: sense-twinkle;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
 
-.sense--deep .sense__particle {
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 0 14rpx rgba(216, 180, 254, 0.95), 0 0 28rpx rgba(168, 85, 247, 0.35);
-}
-
-.sense--calm .sense__particle {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 12rpx rgba(186, 250, 240, 0.9), 0 0 24rpx rgba(78, 205, 196, 0.3);
-}
-
-.sense--bright .sense__particle {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 12rpx rgba(255, 220, 170, 0.95), 0 0 26rpx rgba(255, 159, 67, 0.35);
-}
-
 @keyframes sense-twinkle {
   0%,
   100% {
-    opacity: 0.12;
-    transform: scale(0.45);
+    opacity: 0.35;
+    transform: scale(0.55);
   }
-  35% {
-    opacity: 0.95;
+  42% {
+    opacity: 1;
     transform: scale(1);
   }
-  65% {
-    opacity: 0.45;
-    transform: scale(0.75);
+  68% {
+    opacity: 0.55;
+    transform: scale(0.88);
   }
 }
 
 .sense__caption {
   position: absolute;
   left: 50%;
-  bottom: 8%;
+  bottom: 6%;
   transform: translateX(-50%);
   z-index: 5;
   max-width: 88%;
@@ -336,18 +266,19 @@
   box-sizing: border-box;
   font-size: 22rpx;
   line-height: 1.55;
-  color: rgba(230, 228, 245, 0.42);
+  color: rgba(235, 233, 250, 0.72);
   text-align: center;
   letter-spacing: 0.06em;
+  text-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.35);
   animation: sense-caption-breathe 4s ease-in-out infinite;
 }
 
 @keyframes sense-caption-breathe {
   0%,
   100% {
-    opacity: 0.38;
+    opacity: 0.55;
   }
   50% {
-    opacity: 0.72;
+    opacity: 0.92;
   }
 }
