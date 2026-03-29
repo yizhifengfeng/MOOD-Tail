@@ -1,0 +1,119 @@
+.emotion-slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 4rpx 0 8rpx;
+  box-sizing: border-box;
+}
+
+.emotion-slider--disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.emotion-slider__labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rpx 10rpx;
+}
+
+.emotion-slider__label {
+  font-size: 22rpx;
+  color: #8b8b9e;
+  letter-spacing: 0.5rpx;
+}
+
+.emotion-slider__label--left {
+  color: rgba(108, 92, 231, 0.95);
+}
+
+.emotion-slider__label--right {
+  color: rgba(254, 202, 87, 0.95);
+}
+
+.emotion-slider__track-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 8rpx;
+  box-sizing: border-box;
+  touch-action: none;
+}
+
+.emotion-slider__track-inner {
+  position: relative;
+  height: 88rpx;
+  touch-action: none;
+}
+
+.emotion-slider__track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 10rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  box-shadow: inset 0 1rpx 2rpx rgba(0, 0, 0, 0.35);
+}
+
+.emotion-slider__track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6c5ce7 0%, #4ecdc4 45%, #feca57 100%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.emotion-slider__track-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6c5ce7 0%, #a855f7 35%, #4ecdc4 65%, #feca57 100%);
+  box-shadow: 0 0 12rpx rgba(78, 205, 196, 0.2);
+  transition: width 0.12s ease-out;
+}
+
+.emotion-slider__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: -16rpx;
+  margin-left: -16rpx;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #eaeaea, #c8c8d4);
+  box-shadow:
+    0 0 0 4rpx rgba(168, 85, 247, 0.35),
+    0 4rpx 12rpx rgba(0, 0, 0, 0.45),
+    0 0 20rpx rgba(168, 85, 247, 0.5);
+  z-index: 2;
+}
+
+.emotion-slider__value {
+  position: absolute;
+  top: 4rpx;
+  left: 0;
+  transform: translateX(-50%);
+  min-width: 72rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #eaeaea;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.6);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.emotion-slider--dragging .emotion-slider__track-fill {
+  transition: none;
+}

@@ -1,0 +1,67 @@
+<view class="recipe-card" style="--accent: {{accentColor}}; --accent-glow: {{accentGlow}};">
+  <view class="recipe-card__border"></view>
+  <view class="recipe-card__body">
+    <view class="recipe-card__header">
+      <text class="recipe-card__title">你的情绪配方</text>
+      <view class="recipe-card__deco">
+        <view class="recipe-card__deco-line"></view>
+        <view class="recipe-card__deco-dot"></view>
+        <view class="recipe-card__deco-line"></view>
+      </view>
+    </view>
+
+    <view class="recipe-card__sep"></view>
+
+    <view class="recipe-card__row">
+      <text class="recipe-card__label">基酒</text>
+      <view class="recipe-card__main">
+        <text class="recipe-card__serif recipe-card__strong">{{baseName}}</text>
+        <text class="recipe-card__text">{{baseFlavor}}</text>
+      </view>
+    </view>
+
+    <view class="recipe-card__sep"></view>
+
+    <view class="recipe-card__notes-grid">
+      <view class="recipe-card__note-col">
+        <text class="recipe-card__label">前调</text>
+        <text class="recipe-card__serif recipe-card__strong">{{topIngredient}}</text>
+        <text class="recipe-card__text recipe-card__muted-sm">{{topMood}}</text>
+      </view>
+      <view class="recipe-card__note-col">
+        <text class="recipe-card__label">中调</text>
+        <text class="recipe-card__serif recipe-card__strong">{{midIngredient}}</text>
+        <text class="recipe-card__text recipe-card__muted-sm">{{midMood}}</text>
+      </view>
+      <view class="recipe-card__note-col">
+        <text class="recipe-card__label">尾调</text>
+        <text class="recipe-card__serif recipe-card__strong">{{tailIngredient}}</text>
+        <text class="recipe-card__text recipe-card__muted-sm">{{tailMood}}</text>
+      </view>
+    </view>
+
+    <view class="recipe-card__sep" wx:if="{{!hideBottomMeter}}"></view>
+
+    <view class="recipe-card__bottom-row" wx:if="{{!hideBottomMeter}}">
+      <view class="recipe-card__info-item">
+        <text class="recipe-card__label">体感</text>
+        <text class="recipe-card__text recipe-card__accent">{{feeling}}</text>
+      </view>
+      <view class="recipe-card__info-item recipe-card__info-item--conc">
+        <view class="recipe-card__row-head">
+          <text class="recipe-card__label">浓度</text>
+          <text class="recipe-card__text recipe-card__percent">{{concentrationText}}</text>
+        </view>
+        <view class="recipe-card__bar-track">
+          <view class="recipe-card__bar-fill" style="width: {{progressPercent}}%;"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="recipe-card__sep"></view>
+
+    <view class="recipe-card__footer">
+      <text class="recipe-card__summary">{{summary}}</text>
+    </view>
+  </view>
+</view>

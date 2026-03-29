@@ -1,0 +1,72 @@
+.mood-calendar {
+  padding: 24rpx 16rpx 32rpx;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.mood-calendar__title {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  letter-spacing: 0.04em;
+}
+
+.mood-calendar__weekdays {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+  padding: 0 4rpx;
+}
+
+.mood-calendar__wd {
+  width: 14.28%;
+  text-align: center;
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.mood-calendar__grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mood-calendar__cell {
+  width: 14.28%;
+  min-height: 88rpx;
+  box-sizing: border-box;
+  padding: 8rpx 4rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mood-calendar__cell--pad {
+  pointer-events: none;
+}
+
+.mood-calendar__day {
+  font-size: 26rpx;
+  line-height: 1.2;
+}
+
+.mood-calendar__dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  margin-top: 8rpx;
+}
+
+.mood-calendar__dot--bright {
+  background: #ff9f43;
+  box-shadow: 0 0 12rpx rgba(255, 159, 67, 0.55);
+}
+
+.mood-calendar__dot--calm {
+  background: #4ecdc4;
+  box-shadow: 0 0 12rpx rgba(78, 205, 196, 0.55);
+}
+
+.mood-calendar__dot--deep {
+  background: #a855f7;
+  box-shadow: 0 0 12rpx rgba(168, 85, 247, 0.55);
+}

@@ -1,0 +1,579 @@
+.page {
+  height: 100vh;
+  background: radial-gradient(120% 85% at 50% 0%, #18181f 0%, #0a0a0f 42%, #060608 100%);
+  color: rgba(255, 255, 255, 0.92);
+  --accent: #4ecdc4;
+  --accent-rgb: 78, 205, 196;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 15, 0.94) 0%,
+    rgba(10, 10, 15, 0.72) 70%,
+    transparent 100%
+  );
+}
+
+.nav__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24rpx 0 32rpx;
+  box-sizing: border-box;
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.nav__btn {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1rpx solid rgba(255, 255, 255, 0.08);
+}
+
+.nav__icon {
+  font-size: 36rpx;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1;
+}
+
+.nav__icon--close {
+  font-size: 44rpx;
+  font-weight: 300;
+  margin-top: -4rpx;
+}
+
+.nav__spacer {
+  flex: 1;
+}
+
+.nav-clock {
+  position: relative;
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.nav-clock__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2rpx solid rgba(255, 255, 255, 0.78);
+}
+
+.nav-clock__hand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rpx;
+  margin-left: -1rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 2rpx;
+  transform-origin: 50% 100%;
+}
+
+.nav-clock__hand--short {
+  height: 9rpx;
+  margin-top: -9rpx;
+  transform: rotate(40deg);
+}
+
+.nav-clock__hand--long {
+  height: 13rpx;
+  margin-top: -13rpx;
+  transform: rotate(-12deg);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 40rpx;
+  overflow: hidden;
+}
+
+.content--breathe {
+  animation: content-breathe 8s ease-in-out infinite;
+}
+
+@keyframes content-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.97;
+  }
+}
+
+.hero {
+  text-align: center;
+  padding: 20rpx 0 16rpx;
+  opacity: 0;
+  transform: translateY(16rpx);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  flex-shrink: 0;
+}
+
+.hero--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__title {
+  display: block;
+  font-family: 'Songti SC', 'STSong', 'Noto Serif SC', serif;
+  font-size: 48rpx;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
+  color: rgba(250, 250, 252, 0.96);
+}
+
+.hero__en {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+}
+
+.viz__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.viz__stage--large {
+  height: 420rpx;
+  margin-bottom: 8rpx;
+}
+
+.fluid-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 36rpx;
+}
+
+.fluid-bg--breathe {
+  animation: fluid-bg-pulse 10s ease-in-out infinite;
+}
+
+@keyframes fluid-bg-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+}
+
+.fluid__blob {
+  position: absolute;
+  border-radius: 42% 58% 62% 38% / 48% 42% 58% 52%;
+  opacity: 0.62;
+  mix-blend-mode: screen;
+}
+
+.fluid__blob--1 {
+  width: 280rpx;
+  height: 300rpx;
+  left: 4%;
+  top: 8%;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-rgb), 0.62) 0%,
+    rgba(var(--accent-rgb), 0.18) 100%
+  );
+  animation: blob-a 12s ease-in-out infinite;
+}
+
+.fluid__blob--2 {
+  width: 240rpx;
+  height: 260rpx;
+  right: 4%;
+  bottom: 6%;
+  background: linear-gradient(
+    220deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(var(--accent-rgb), 0.45) 50%,
+    rgba(var(--accent-rgb), 0.15) 100%
+  );
+  animation: blob-b 14s ease-in-out infinite;
+}
+
+.fluid__blob--3 {
+  width: 200rpx;
+  height: 220rpx;
+  left: 28%;
+  bottom: 12%;
+  background: linear-gradient(
+    45deg,
+    rgba(var(--accent-rgb), 0.35) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  animation: blob-c 10s ease-in-out infinite;
+}
+
+@keyframes blob-a {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    border-radius: 42% 58% 62% 38% / 48% 42% 58% 52%;
+  }
+  33% {
+    transform: translate(16rpx, -20rpx) rotate(8deg) scale(1.05);
+    border-radius: 58% 42% 38% 62% / 52% 48% 42% 58%;
+  }
+  66% {
+    transform: translate(-12rpx, 12rpx) rotate(-6deg) scale(0.96);
+    border-radius: 48% 52% 58% 42% / 44% 56% 48% 52%;
+  }
+}
+
+@keyframes blob-b {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    border-radius: 52% 48% 44% 56% / 46% 54% 50% 50%;
+  }
+  50% {
+    transform: translate(-24rpx, -16rpx) rotate(-10deg);
+    border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%;
+  }
+}
+
+@keyframes blob-c {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.12) translateY(-10rpx);
+    opacity: 0.85;
+  }
+}
+
+.bottle {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 20rpx 40rpx rgba(0, 0, 0, 0.45));
+}
+
+.bottle--large {
+  width: 200rpx;
+  height: 400rpx;
+  animation: bottle-breathe 6s ease-in-out infinite;
+}
+
+@keyframes bottle-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8rpx) scale(1.02);
+  }
+}
+
+.bottle__neck {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 72rpx;
+  height: 56rpx;
+  border-radius: 12rpx 12rpx 4rpx 4rpx;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.32) 45%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  border: 1rpx solid rgba(255, 255, 255, 0.22);
+}
+
+.bottle__body {
+  position: absolute;
+  left: 50%;
+  top: 54rpx;
+  transform: translateX(-50%);
+  width: 200rpx;
+  height: 300rpx;
+  border-radius: 24rpx 24rpx 32rpx 32rpx;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.2) 38%,
+    rgba(255, 255, 255, 0.04) 58%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border: 1rpx solid rgba(255, 255, 255, 0.26);
+  overflow: hidden;
+  box-shadow: inset 8rpx 0 22rpx rgba(255, 255, 255, 0.1), inset -10rpx 0 28rpx rgba(0, 0, 0, 0.16);
+}
+
+.bottle__liquid {
+  position: absolute;
+  left: 8rpx;
+  right: 8rpx;
+  bottom: 8rpx;
+  height: 62%;
+  border-radius: 0 0 26rpx 26rpx;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent-rgb), 0.15) 0%,
+    rgba(var(--accent-rgb), 0.58) 45%,
+    rgba(var(--accent-rgb), 0.36) 100%
+  );
+  animation: bottle-liquid 5s ease-in-out infinite;
+}
+
+@keyframes bottle-liquid {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-6rpx);
+    opacity: 1;
+  }
+}
+
+.bottle__label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 140rpx;
+  padding: 14rpx 10rpx;
+  border-radius: 8rpx;
+  background: rgba(8, 8, 12, 0.55);
+  border: 1rpx solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.bottle__label-small {
+  display: block;
+  font-size: 16rpx;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.32);
+  margin-bottom: 6rpx;
+}
+
+.bottle__label-name {
+  display: block;
+  font-family: 'Songti SC', 'STSong', serif;
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.35;
+  max-height: 88rpx;
+  overflow: hidden;
+}
+
+.bottle__shine {
+  position: absolute;
+  left: 50%;
+  top: 60rpx;
+  width: 36rpx;
+  height: 340rpx;
+  margin-left: -72rpx;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.32) 50%, transparent 100%);
+  opacity: 0.42;
+  transform: rotate(8deg);
+  pointer-events: none;
+  animation: bottle-shine 6s ease-in-out infinite;
+}
+
+@keyframes bottle-shine {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.58;
+  }
+}
+
+.recipe-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 24rpx 0 16rpx;
+  margin-top: 8rpx;
+  -webkit-overflow-scrolling: touch;
+}
+
+.recipe-wrap--lower {
+  padding-top: 32rpx;
+}
+
+.recipe-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.recommend-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20rpx 8rpx 8rpx;
+  gap: 6rpx;
+}
+
+.recommend-cta__hint {
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.recommend-cta__link {
+  font-size: 26rpx;
+  color: rgba(var(--accent-rgb), 0.95);
+  letter-spacing: 0.04em;
+}
+
+.action-bar {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  padding: 14rpx 20rpx 18rpx;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(8, 8, 12, 0.88) 28%,
+    rgba(8, 8, 12, 0.96) 100%
+  );
+  border-top: 1rpx solid rgba(255, 255, 255, 0.06);
+}
+
+.action {
+  margin: 0;
+  padding: 0 12rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  border-radius: 999rpx;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  box-sizing: border-box;
+}
+
+.action::after {
+  border: none;
+}
+
+.action--primary {
+  flex: 1.1;
+  min-width: 0;
+  color: #0a0a0f;
+  background: linear-gradient(135deg, var(--accent) 0%, rgba(var(--accent-rgb), 0.85) 100%);
+  box-shadow: 0 6rpx 24rpx rgba(var(--accent-rgb), 0.3);
+}
+
+.action--secondary {
+  flex: 1.1;
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1rpx solid rgba(255, 255, 255, 0.12);
+}
+
+.action--icon {
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  min-width: 80rpx;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--accent-rgb), 0.14);
+  border: 1rpx solid rgba(var(--accent-rgb), 0.35);
+}
+
+.action--share-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1rpx solid rgba(255, 255, 255, 0.12);
+}
+
+.action__icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 分享：节点连线示意 */
+.action-ico {
+  width: 36rpx;
+  height: 36rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.action-ico--share::before,
+.action-ico--share::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.action-ico--share::before {
+  width: 8rpx;
+  height: 8rpx;
+  left: 4rpx;
+  top: 14rpx;
+  box-shadow: 22rpx -10rpx 0 0 rgba(255, 255, 255, 0.92),
+    22rpx 10rpx 0 0 rgba(255, 255, 255, 0.92);
+}
+
+.action-ico--share::after {
+  width: 10rpx;
+  height: 10rpx;
+  right: 4rpx;
+  top: 13rpx;
+}
+
+.action--share-btn .action-ico--share::before {
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 22rpx -10rpx 0 0 rgba(255, 255, 255, 0.88),
+    22rpx 10rpx 0 0 rgba(255, 255, 255, 0.88);
+}
+
+.action--share-btn .action-ico--share::after {
+  background: rgba(255, 255, 255, 0.88);
+}

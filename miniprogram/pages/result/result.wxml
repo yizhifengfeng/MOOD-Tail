@@ -1,0 +1,64 @@
+<view class="page" style="--accent: {{accentColor}}; --accent-rgb: {{accentRgb}};">
+  <view class="nav" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+    <view class="nav__inner">
+      <view class="nav__btn" bindtap="onBack" aria-role="button" aria-label="返回">
+        <text class="nav__icon">←</text>
+      </view>
+      <view class="nav__spacer"></view>
+      <view class="nav__right" style="padding-right: {{navRightGap}}rpx;">
+        <view class="nav__btn" bindtap="goHistory" aria-label="历史记录">
+          <view class="nav-clock">
+            <view class="nav-clock__ring"></view>
+            <view class="nav-clock__hand nav-clock__hand--short"></view>
+            <view class="nav-clock__hand nav-clock__hand--long"></view>
+          </view>
+        </view>
+        <view class="nav__btn" bindtap="onCloseToIndex" aria-label="关闭">
+          <text class="nav__icon nav__icon--close">×</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="content content--breathe" style="padding-top: {{navBarHeight}}px;">
+    <view class="hero {{titleVisible ? 'hero--visible' : ''}}">
+      <text class="hero__title">{{cocktailName}}</text>
+      <text class="hero__en" wx:if="{{cocktailNameEn}}">{{cocktailNameEn}}</text>
+    </view>
+
+    <view class="viz__stage viz__stage--large">
+      <view class="fluid-bg fluid-bg--breathe">
+        <view class="fluid__blob fluid__blob--1"></view>
+        <view class="fluid__blob fluid__blob--2"></view>
+        <view class="fluid__blob fluid__blob--3"></view>
+      </view>
+      <view class="bottle bottle--large">
+        <view class="bottle__shine"></view>
+        <view class="bottle__neck"></view>
+        <view class="bottle__body">
+          <view class="bottle__liquid"></view>
+          <view class="bottle__label">
+            <text class="bottle__label-small">MOOD TAIL</text>
+            <text class="bottle__label-name">{{cocktailName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="recipe-wrap recipe-wrap--lower">
+      <recipe-card recipe="{{recipe}}" direction="{{direction}}" />
+      <view class="recommend-cta" bindtap="goRecommendProducts">
+        <text class="recommend-cta__hint">根据此刻心情</text>
+        <text class="recommend-cta__link">查看推荐酒品 ›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-bar" style="padding-bottom: calc(16rpx + {{safeAreaBottom}}px);">
+    <button class="action action--primary" bindtap="onSaveCocktail">保存</button>
+    <button class="action action--secondary" bindtap="onMixAnother">再调一杯</button>
+    <button class="action action--icon action--share-btn" open-type="share" aria-label="分享给好友">
+      <view class="action-ico action-ico--share" aria-hidden="true"></view>
+    </button>
+  </view>
+</view>

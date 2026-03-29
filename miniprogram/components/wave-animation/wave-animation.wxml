@@ -1,0 +1,6 @@
+<view class="wave-animation wave-animation--{{ dirClass }} {{ active ? 'wave-animation--active' : '' }}">
+  <view class="wave-animation__layer wave-animation__layer--1" />
+  <view class="wave-animation__layer wave-animation__layer--2" />
+  <view class="wave-animation__layer wave-animation__layer--3" />
+  <view wx:if="{{ active && statusText }}" class="wave-animation__text">{{ statusText }}</view>
+</view>

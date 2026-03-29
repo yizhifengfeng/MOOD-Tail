@@ -1,0 +1,24 @@
+<view class="mood-calendar">
+  <view class="mood-calendar__title">{{ year }} 年 {{ month }} 月</view>
+  <view class="mood-calendar__weekdays">
+    <text wx:for="{{ weekdays }}" wx:key="*this" class="mood-calendar__wd">{{ item }}</text>
+  </view>
+  <view class="mood-calendar__grid">
+    <view
+      wx:for="{{ cells }}"
+      wx:key="k"
+      class="mood-calendar__cell {{ item.empty ? 'mood-calendar__cell--pad' : '' }}"
+      data-date="{{ item.dateStr }}"
+      data-cocktail-id="{{ item.cocktailId }}"
+      bindtap="onCellTap"
+    >
+      <block wx:if="{{ !item.empty }}">
+        <text class="mood-calendar__day">{{ item.day }}</text>
+        <view
+          wx:if="{{ item.hasMood }}"
+          class="mood-calendar__dot mood-calendar__dot--{{ item.direction }}"
+        />
+      </block>
+    </view>
+  </view>
+</view>

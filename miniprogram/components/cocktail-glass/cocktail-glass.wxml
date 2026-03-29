@@ -1,0 +1,27 @@
+<view class="cocktail-root">
+  <view class="glass-stage">
+    <view class="glass-outer">
+      <view class="glass-rim"></view>
+      <view class="glass-bowl {{isAnalyzing ? 'glass-bowl--active' : ''}}">
+        <view class="glass-highlight glass-highlight--left"></view>
+        <view class="glass-highlight glass-highlight--right"></view>
+
+        <view
+          class="liquid-zone"
+          style="--liquid: {{liquidColor}}; --liquid-light: {{liquidLight}}; --liquid-dark: {{liquidDark}};"
+        >
+          <view class="liquid-fill"></view>
+          <view class="liquid-shimmer"></view>
+          <view class="liquid-wave liquid-wave--a liquid-wave--{{efiWaveTier}}"></view>
+          <view class="liquid-wave liquid-wave--b liquid-wave--{{efiWaveTier}}"></view>
+        </view>
+
+        <canvas type="2d" id="bubbleCanvas" class="bubble-canvas"></canvas>
+
+        <view class="glow-orb" style="opacity: {{glowOpacity}}; background: {{glowGradient}};"></view>
+      </view>
+      <view class="glass-stem"></view>
+      <view class="glass-foot"></view>
+    </view>
+  </view>
+</view>

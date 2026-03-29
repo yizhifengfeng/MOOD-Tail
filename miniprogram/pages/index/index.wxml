@@ -1,0 +1,105 @@
+<view class="page-index page-index--{{isAnalyzing ? 'analyzing' : (emotionText ? 'active' : 'idle')}}">
+  <view class="ambient" aria-hidden="true">
+    <view class="ambient__orb ambient__orb--a"></view>
+    <view class="ambient__orb ambient__orb--b"></view>
+    <view class="ambient__grain"></view>
+  </view>
+
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-bar__inner">
+      <view class="nav-brand">
+        <text class="nav-brand__mark">MOOD Tail</text>
+        <text class="nav-brand__sub">按心情喝一杯</text>
+      </view>
+      <view class="nav-actions" style="padding-right: {{navRightGap}}rpx;">
+        <view
+          class="nav-icon-btn {{isAnalyzing ? 'nav-icon-btn--disabled' : ''}}"
+          hover-class="nav-icon-btn--hover"
+          bindtap="goToHistory"
+          aria-label="历史记录"
+        >
+          <view class="nav-clock">
+            <view class="nav-clock__ring"></view>
+            <view class="nav-clock__hand nav-clock__hand--short"></view>
+            <view class="nav-clock__hand nav-clock__hand--long"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page-content">
+    <view class="hero-glass">
+      <view class="hero-glass__frame">
+        <cocktail-glass
+          sliderValue="{{sliderValue}}"
+          direction="{{emotionDirection}}"
+          intensity="{{emotionIntensity}}"
+          fluctuation="{{emotionFluctuation}}"
+          isAnalyzing="{{isAnalyzing}}"
+          statusText="{{statusText}}"
+        />
+        <view class="wave-layer {{isAnalyzing ? 'wave-layer--visible' : ''}}">
+          <wave-animation
+            active="{{isAnalyzing}}"
+            direction="{{emotionDirection}}"
+            statusText="{{statusText}}"
+          />
+        </view>
+      </view>
+      <text class="hero-wait" wx:if="{{!isAnalyzing}}">Wait to put</text>
+    </view>
+
+    <view class="section section--input">
+      <view class="chat-bubble">
+        <textarea
+          class="chat-bubble__field"
+          value="{{emotionText}}"
+          placeholder="告诉我，你现在感觉如何？"
+          placeholder-class="chat-bubble__placeholder"
+          maxlength="500"
+          disabled="{{isAnalyzing}}"
+          adjust-position="{{true}}"
+          cursor-spacing="32"
+          show-confirm-bar="{{false}}"
+          bindinput="onTextInput"
+        />
+        <view class="chat-bubble__meta">
+          <text class="chat-bubble__hint">MOOD Tail 会为你调制一杯专属特调</text>
+        </view>
+        <view class="chat-bubble__confirm" wx:if="{{isRandomText && !textConfirmed && !isAnalyzing}}">
+          <button class="btn-confirm-inline" hover-class="btn-confirm-inline--hover" bindtap="handleConfirmRandom">确认这段描述</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="section section--slider">
+      <emotion-slider value="{{sliderValue}}" disabled="{{isAnalyzing}}" bindchange="onSliderChange" />
+    </view>
+
+    <view class="section section--actions safe-bottom">
+      <view class="actions-row">
+        <button
+          class="btn btn-secondary btn-half"
+          hover-class="btn-secondary--hover"
+          disabled="{{isAnalyzing}}"
+          bindtap="handleRandomGenerate"
+        >随机生成</button>
+        <button
+          class="btn btn-primary btn-half btn-primary--glow {{canStartMixing && !isAnalyzing ? '' : 'btn-disabled'}}"
+          hover-class="btn-primary--hover"
+          disabled="{{!canStartMixing || isAnalyzing}}"
+          bindtap="handleStartMixing"
+        >开始调制</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!isLoggedIn}}" class="login-overlay" catchtouchmove="preventTouchMove">
+    <view class="login-panel">
+      <text class="login-panel__title">欢迎来到 MOOD Tail</text>
+      <text class="login-panel__desc">登录后可保存你的情绪特调与历史记录</text>
+      <button class="btn btn-primary btn-block login-panel__btn" hover-class="btn-primary--hover" bindtap="handleLogin">微信登录</button>
+    </view>
+  </view>
+</view>

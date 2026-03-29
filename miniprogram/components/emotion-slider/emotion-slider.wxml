@@ -1,0 +1,28 @@
+<view class="emotion-slider {{ disabled ? 'emotion-slider--disabled' : '' }} {{ dragging ? 'emotion-slider--dragging' : '' }}">
+  <view class="emotion-slider__labels">
+    <text class="emotion-slider__label emotion-slider__label--left">Negative</text>
+    <text class="emotion-slider__label emotion-slider__label--right">Positive</text>
+  </view>
+  <view class="emotion-slider__track-wrap">
+    <view
+      id="track"
+      class="emotion-slider__track-inner"
+      bindtouchstart="onTouchStart"
+      catchtouchmove="onTouchMove"
+      catchtouchend="onTouchEnd"
+      catchtouchcancel="onTouchEnd"
+    >
+      <view class="emotion-slider__track">
+        <view class="emotion-slider__track-fill" style="width: {{ innerValue }}%;"></view>
+      </view>
+      <view
+        class="emotion-slider__thumb"
+        style="left: {{ innerValue }}%; transition: {{ thumbTransition }};"
+      ></view>
+      <view
+        class="emotion-slider__value"
+        style="left: {{ innerValue }}%; transition: {{ thumbTransition }};"
+      >{{ innerValue }}%</view>
+    </view>
+  </view>
+</view>

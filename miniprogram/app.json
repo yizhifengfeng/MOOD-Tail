@@ -1,0 +1,32 @@
+{
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "用于将特调配方保存为图片到相册"
+    }
+  },
+  "pages": [
+    "pages/index/index",
+    "pages/result/result",
+    "pages/history/history",
+    "pages/detail/detail",
+    "pages/products/products"
+  ],
+  "window": {
+    "backgroundColor": "#0A0A0F",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0A0A0F",
+    "navigationBarTitleText": "MOOD Tail",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "cocktail-glass": "/components/cocktail-glass/cocktail-glass",
+    "emotion-slider": "/components/emotion-slider/emotion-slider",
+    "recipe-card": "/components/recipe-card/recipe-card",
+    "wave-animation": "/components/wave-animation/wave-animation",
+    "mood-calendar": "/components/mood-calendar/mood-calendar"
+  }
+}
