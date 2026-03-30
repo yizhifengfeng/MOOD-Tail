@@ -58,7 +58,7 @@
         <textarea
           class="chat-bubble__field"
           value="{{emotionText}}"
-          placeholder="告诉我，你现在感觉如何？"
+          placeholder="告诉我，你现在感觉如何？或拖动滑块随机生成"
           placeholder-class="chat-bubble__placeholder"
           maxlength="500"
           disabled="{{isAnalyzing}}"

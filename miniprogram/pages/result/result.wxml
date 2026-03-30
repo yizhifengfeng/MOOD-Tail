@@ -1,4 +1,4 @@
-<view class="page" style="--accent: {{accentColor}}; --accent-rgb: {{accentRgb}};">
+<view class="page page--result" style="--accent: {{accentColor}}; --accent-rgb: {{accentRgb}};">
   <view class="nav" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
     <view class="nav__inner">
       <view class="nav__btn" bindtap="onBack" aria-role="button" aria-label="返回">
@@ -46,7 +46,7 @@
     </view>
 
     <view class="recipe-wrap recipe-wrap--lower">
-      <recipe-card recipe="{{recipe}}" direction="{{direction}}" />
+      <recipe-card recipe="{{recipe}}" direction="{{direction}}" compact="{{true}}" />
       <view class="recommend-cta" bindtap="goRecommendProducts">
         <text class="recommend-cta__hint">根据此刻心情</text>
         <text class="recommend-cta__link">查看推荐酒品 ›</text>

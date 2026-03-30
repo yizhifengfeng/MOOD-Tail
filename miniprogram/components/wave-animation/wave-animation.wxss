@@ -80,10 +80,10 @@
   left: 50%;
   top: 46%;
   z-index: 4;
-  width: 220rpx;
-  height: 220rpx;
-  margin-left: -110rpx;
-  margin-top: -110rpx;
+  width: 268rpx;
+  height: 268rpx;
+  margin-left: -134rpx;
+  margin-top: -134rpx;
   animation: wave-ball-airflow 12s ease-in-out infinite;
 }
 
@@ -104,20 +104,20 @@
 }
 
 .wave-ball {
-  width: 220rpx;
-  height: 220rpx;
+  width: 268rpx;
+  height: 268rpx;
   border-radius: 50%;
   position: relative;
-  animation: wave-ball-breathe 5.2s ease-in-out infinite;
+  animation: wave-ball-breathe 4.6s ease-in-out infinite;
 }
 
 @keyframes wave-ball-breathe {
   0%,
   100% {
-    transform: scale(0.98);
+    transform: scale(0.96);
   }
   50% {
-    transform: scale(1.02);
+    transform: scale(1.05);
   }
 }
 
@@ -140,59 +140,59 @@
 
 .wave-ball__wave {
   position: absolute;
-  left: -40%;
-  width: 180%;
-  height: 52rpx;
+  left: -44%;
+  width: 188%;
+  height: 64rpx;
   border-radius: 50%;
-  opacity: 0.72;
+  opacity: 0.82;
 }
 
 .wave-ball__wave--1 {
   bottom: 8%;
-  animation: wave-surface-a 2.8s ease-in-out infinite;
+  animation: wave-surface-a 2.2s ease-in-out infinite;
 }
 
 .wave-ball__wave--2 {
   bottom: 22%;
-  opacity: 0.58;
-  animation: wave-surface-b 3.4s ease-in-out infinite;
-  animation-delay: 0.4s;
+  opacity: 0.64;
+  animation: wave-surface-b 2.75s ease-in-out infinite;
+  animation-delay: 0.35s;
 }
 
 .wave-ball__wave--3 {
   bottom: 36%;
-  opacity: 0.48;
-  animation: wave-surface-c 2.2s ease-in-out infinite;
-  animation-delay: 0.2s;
+  opacity: 0.52;
+  animation: wave-surface-c 1.85s ease-in-out infinite;
+  animation-delay: 0.15s;
 }
 
 @keyframes wave-surface-a {
   0%,
   100% {
-    transform: translateX(-6%) rotate(-1deg);
+    transform: translateX(-10%) rotate(-2deg);
   }
   50% {
-    transform: translateX(8%) rotate(1.2deg);
+    transform: translateX(12%) rotate(2deg);
   }
 }
 
 @keyframes wave-surface-b {
   0%,
   100% {
-    transform: translateX(5%) translateY(2rpx);
+    transform: translateX(8%) translateY(4rpx);
   }
   50% {
-    transform: translateX(-10%) translateY(-3rpx);
+    transform: translateX(-14%) translateY(-6rpx);
   }
 }
 
 @keyframes wave-surface-c {
   0%,
   100% {
-    transform: translateX(4%) scaleX(1.02);
+    transform: translateX(6%) scaleX(1.04);
   }
   50% {
-    transform: translateX(-7%) scaleX(0.98);
+    transform: translateX(-11%) scaleX(0.96);
   }
 }
 

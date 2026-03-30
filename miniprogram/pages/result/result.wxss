@@ -188,8 +188,8 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.02);
-    opacity: 0.95;
+    transform: scale(1.05);
+    opacity: 0.92;
   }
 }
 
@@ -247,11 +247,11 @@
     border-radius: 42% 58% 62% 38% / 48% 42% 58% 52%;
   }
   33% {
-    transform: translate(16rpx, -20rpx) rotate(8deg) scale(1.05);
+    transform: translate(22rpx, -28rpx) rotate(11deg) scale(1.08);
     border-radius: 58% 42% 38% 62% / 52% 48% 42% 58%;
   }
   66% {
-    transform: translate(-12rpx, 12rpx) rotate(-6deg) scale(0.96);
+    transform: translate(-18rpx, 18rpx) rotate(-8deg) scale(0.94);
     border-radius: 48% 52% 58% 42% / 44% 56% 48% 52%;
   }
 }
@@ -263,7 +263,7 @@
     border-radius: 52% 48% 44% 56% / 46% 54% 50% 50%;
   }
   50% {
-    transform: translate(-24rpx, -16rpx) rotate(-10deg);
+    transform: translate(-32rpx, -22rpx) rotate(-13deg);
     border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%;
   }
 }
@@ -275,8 +275,8 @@
     opacity: 0.55;
   }
   50% {
-    transform: scale(1.12) translateY(-10rpx);
-    opacity: 0.85;
+    transform: scale(1.18) translateY(-16rpx);
+    opacity: 0.9;
   }
 }
 
@@ -295,10 +295,10 @@
 @keyframes bottle-breathe {
   0%,
   100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1.14);
   }
   50% {
-    transform: translateY(-8rpx) scale(1.02);
+    transform: translateY(-14rpx) scale(1.2);
   }
 }
 
@@ -352,18 +352,26 @@
     rgba(var(--accent-rgb), 0.58) 45%,
     rgba(var(--accent-rgb), 0.36) 100%
   );
-  animation: bottle-liquid 5s ease-in-out infinite;
+  animation: bottle-liquid 3.8s ease-in-out infinite;
 }
 
 @keyframes bottle-liquid {
   0%,
   100% {
-    transform: translateY(0);
-    opacity: 0.95;
+    transform: translateY(0) scaleY(1) skewX(0deg);
+    opacity: 0.94;
+  }
+  25% {
+    transform: translateY(-5rpx) scaleY(1.04) skewX(0.8deg);
+    opacity: 0.98;
   }
   50% {
-    transform: translateY(-6rpx);
+    transform: translateY(-14rpx) scaleY(1.08) skewX(0deg);
     opacity: 1;
+  }
+  75% {
+    transform: translateY(-5rpx) scaleY(1.04) skewX(-0.8deg);
+    opacity: 0.98;
   }
 }
 
@@ -433,6 +441,31 @@
 
 .recipe-wrap--lower {
   padding-top: 32rpx;
+}
+
+/* 单屏内更饱满：略让渡酒瓶区高度给配方卡呼吸感 */
+.page--result .hero {
+  padding: 16rpx 0 12rpx;
+}
+
+.page--result .hero__en {
+  margin-top: 10rpx;
+}
+
+.page--result .viz__stage--large {
+  height: 456rpx;
+  margin-bottom: 4rpx;
+}
+
+.page--result .recipe-wrap--lower {
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
+  margin-top: 0;
+}
+
+.page--result .recommend-cta {
+  padding: 14rpx 8rpx 6rpx;
+  gap: 8rpx;
 }
 
 .recipe-wrap::-webkit-scrollbar {

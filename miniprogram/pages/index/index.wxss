@@ -283,9 +283,9 @@
 }
 
 .chat-bubble__hint {
-  font-size: 20rpx;
+  font-size: 22rpx;
   color: rgba(139,139,158,0.85);
-  letter-spacing: 1rpx;
+  letter-spacing: 0.5rpx;
 }
 
 .actions-row {

@@ -34,13 +34,19 @@ Component({
     hideBottomMeter: {
       type: Boolean,
       value: false
+    },
+    /** 结果页等紧凑排版：压缩模块间距 */
+    compact: {
+      type: Boolean,
+      value: false
     }
   },
 
   data: {
     accentColor: ACCENT.calm,
     accentGlow: ACCENT_GLOW.calm,
-    baseName: '',
+    baseNameCn: '',
+    baseNameEn: '',
     baseFlavor: '',
     topIngredient: '',
     topMood: '',
@@ -91,8 +97,21 @@ Component({
       const num = typeof conc === 'number' ? conc : parseFloat(conc);
       const pct = clamp(Number.isNaN(num) ? 0 : Math.round(num), 0, 100);
 
+      let baseEn = '';
+      let baseCn = safeStr(base.desc);
+      if (base.name && typeof base.name === 'object') {
+        baseEn = safeStr(base.name.en);
+        if (!baseCn) baseCn = safeStr(base.name.cn);
+      } else {
+        baseEn = safeStr(base.name);
+      }
+      if (!baseCn) baseCn = safeStr(base.cn || base.nameCn);
+      const baseNameCn = baseCn || baseEn;
+      const baseNameEn = baseCn && baseEn && baseEn !== baseCn ? baseEn : '';
+
       this.setData({
-        baseName: safeStr(base.name),
+        baseNameCn,
+        baseNameEn,
         baseFlavor: safeStr(base.flavor),
         topIngredient: safeStr(top.ingredient),
         topMood: safeStr(top.mood),

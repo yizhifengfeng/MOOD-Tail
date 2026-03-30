@@ -21,6 +21,8 @@
   flex-direction: column;
   align-items: center;
   width: 300rpx;
+  transform: scale(1.14);
+  transform-origin: center bottom;
 }
 
 .glass-rim {
@@ -128,29 +130,29 @@
     rgba(0, 0, 0, 0.05) 100%
   );
   mix-blend-mode: overlay;
-  animation: liquidShimmer 4.5s ease-in-out infinite;
+  animation: liquidShimmer 3.4s ease-in-out infinite;
 }
 
 @keyframes liquidShimmer {
   0%,
   100% {
-    opacity: 0.4;
-    transform: translateX(-3%);
+    opacity: 0.45;
+    transform: translateX(-6%);
   }
   50% {
-    opacity: 0.7;
-    transform: translateX(3%);
+    opacity: 0.82;
+    transform: translateX(6%);
   }
 }
 
 .liquid-wave {
   position: absolute;
-  left: -20%;
-  width: 140%;
-  height: 24rpx;
+  left: -24%;
+  width: 148%;
+  height: 32rpx;
   top: 0;
   z-index: 2;
-  opacity: 0.7;
+  opacity: 0.82;
 }
 
 .liquid-wave--a {
@@ -164,8 +166,8 @@
 }
 
 .liquid-wave--b {
-  top: 6rpx;
-  opacity: 0.4;
+  top: 10rpx;
+  opacity: 0.58;
   background: radial-gradient(
     ellipse 60rpx 14rpx at 50% 100%,
     rgba(255, 255, 255, 0.25) 0%,
@@ -177,98 +179,98 @@
 
 /* EFI: gentle / mid / intense ripple */
 .liquid-wave--a.liquid-wave--gentle {
-  animation: waveDriftGentle 3.2s linear infinite;
+  animation: waveDriftGentle 2.6s linear infinite;
 }
 
 .liquid-wave--b.liquid-wave--gentle {
-  animation: waveDriftGentleB 4.2s linear infinite reverse;
+  animation: waveDriftGentleB 3.4s linear infinite reverse;
 }
 
 .liquid-wave--a.liquid-wave--mid {
-  animation: waveDriftMid 2.2s linear infinite;
+  animation: waveDriftMid 1.75s linear infinite;
 }
 
 .liquid-wave--b.liquid-wave--mid {
-  animation: waveDriftMidB 2.9s linear infinite reverse;
+  animation: waveDriftMidB 2.35s linear infinite reverse;
 }
 
 .liquid-wave--a.liquid-wave--intense {
-  animation: waveDriftIntense 1.05s linear infinite;
+  animation: waveDriftIntense 0.82s linear infinite;
 }
 
 .liquid-wave--b.liquid-wave--intense {
-  animation: waveDriftIntenseB 1.35s linear infinite reverse;
+  animation: waveDriftIntenseB 1.08s linear infinite reverse;
 }
 
 @keyframes waveDriftGentle {
   0% {
-    transform: translateX(0) translateY(2rpx);
-  }
-  50% {
-    transform: translateX(-25%) translateY(-2rpx);
-  }
-  100% {
-    transform: translateX(-50%) translateY(2rpx);
-  }
-}
-
-@keyframes waveDriftGentleB {
-  0% {
-    transform: translateX(0) translateY(1rpx);
-  }
-  50% {
-    transform: translateX(-22%) translateY(-1rpx);
-  }
-  100% {
-    transform: translateX(-45%) translateY(1rpx);
-  }
-}
-
-@keyframes waveDriftMid {
-  0% {
     transform: translateX(0) translateY(4rpx);
   }
   50% {
-    transform: translateX(-25%) translateY(-5rpx);
+    transform: translateX(-25%) translateY(-6rpx);
   }
   100% {
     transform: translateX(-50%) translateY(4rpx);
   }
 }
 
-@keyframes waveDriftMidB {
+@keyframes waveDriftGentleB {
   0% {
     transform: translateX(0) translateY(3rpx);
   }
   50% {
-    transform: translateX(-24%) translateY(-4rpx);
+    transform: translateX(-22%) translateY(-5rpx);
   }
   100% {
-    transform: translateX(-48%) translateY(3rpx);
+    transform: translateX(-45%) translateY(3rpx);
+  }
+}
+
+@keyframes waveDriftMid {
+  0% {
+    transform: translateX(0) translateY(7rpx);
+  }
+  50% {
+    transform: translateX(-25%) translateY(-9rpx);
+  }
+  100% {
+    transform: translateX(-50%) translateY(7rpx);
+  }
+}
+
+@keyframes waveDriftMidB {
+  0% {
+    transform: translateX(0) translateY(5rpx);
+  }
+  50% {
+    transform: translateX(-24%) translateY(-7rpx);
+  }
+  100% {
+    transform: translateX(-48%) translateY(5rpx);
   }
 }
 
 @keyframes waveDriftIntense {
   0% {
-    transform: translateX(0) translateY(8rpx);
+    transform: translateX(0) translateY(12rpx);
   }
   50% {
-    transform: translateX(-28%) translateY(-10rpx);
+    transform: translateX(-28%) translateY(-14rpx);
   }
   100% {
-    transform: translateX(-52%) translateY(8rpx);
+    transform: translateX(-52%) translateY(12rpx);
   }
 }
 
 @keyframes waveDriftIntenseB {
   0% {
-    transform: translateX(0) translateY(6rpx);
+    transform: translateX(0) translateY(9rpx);
   }
   50% {
-    transform: translateX(-26%) translateY(-8rpx);
+    transform: translateX(-26%) translateY(-11rpx);
   }
   100% {
-    transform: translateX(-50%) translateY(6rpx);
+    transform: translateX(-50%) translateY(9rpx);
   }
 }
 

@@ -141,6 +141,14 @@
   gap: 10rpx;
 }
 
+.recipe-card__base-en {
+  font-size: 22rpx;
+  line-height: 1.35;
+  color: rgba(180, 178, 200, 0.62);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
 .recipe-card__serif {
   font-family: var(--font-serif, Georgia, 'Noto Serif SC', serif);
 }
@@ -158,21 +166,17 @@
   color: rgba(220, 218, 235, 0.72);
 }
 
+.recipe-card__lead {
+  position: relative;
+  z-index: 1;
+  padding: 4rpx 8rpx 0;
+}
+
 /* —— 三列风味（咖啡风味卡） —— */
 .recipe-card__notes-section {
   position: relative;
   z-index: 1;
   margin-top: 4rpx;
-}
-
-.recipe-card__notes-kicker {
-  display: block;
-  font-size: 20rpx;
-  letter-spacing: 0.28em;
-  color: rgba(255, 255, 255, 0.38);
-  text-align: center;
-  margin-bottom: 20rpx;
-  text-transform: uppercase;
 }
 
 .recipe-card__notes-grid {
@@ -290,13 +294,6 @@
   box-shadow: 0 0 16rpx var(--accent-glow, rgba(168, 85, 247, 0.35));
   transition: width 0.45s ease;
 }
-
-.recipe-card__footer {
-  position: relative;
-  z-index: 1;
-  padding-top: 6rpx;
-}
-
 .recipe-card__summary {
   display: block;
   font-size: 26rpx;
@@ -309,3 +306,118 @@
 .recipe-card__summary--italic {
   font-style: italic;
 }
+
+/* 结果页：在单屏前提下略紧于默认，保留呼吸感与层次 */
+.recipe-card--compact .recipe-card__body {
+  padding: 24rpx 26rpx 22rpx;
+}
+
+.recipe-card--compact .recipe-card__inner-dots {
+  top: 108rpx;
+  bottom: 18rpx;
+  left: 16rpx;
+  right: 16rpx;
+}
+
+.recipe-card--compact .recipe-card__header {
+  margin-bottom: 6rpx;
+}
+
+.recipe-card--compact .recipe-card__title {
+  font-size: 30rpx;
+}
+
+.recipe-card--compact .recipe-card__deco {
+  margin-top: 14rpx;
+  gap: 14rpx;
+}
+
+.recipe-card--compact .recipe-card__deco-line {
+  width: 72rpx;
+}
+
+.recipe-card--compact .recipe-card__sep {
+  margin: 18rpx 0;
+}
+
+.recipe-card--compact .recipe-card__sep--dotted {
+  margin: 18rpx 0 14rpx;
+}
+
+.recipe-card--compact .recipe-card__lead {
+  padding: 4rpx 6rpx 0;
+}
+
+.recipe-card--compact .recipe-card__summary {
+  font-size: 24rpx;
+  line-height: 1.58;
+}
+
+.recipe-card--compact .recipe-card__main {
+  gap: 8rpx;
+}
+
+.recipe-card--compact .recipe-card__strong {
+  font-size: 32rpx;
+  line-height: 1.28;
+}
+
+.recipe-card--compact .recipe-card__text {
+  font-size: 24rpx;
+  line-height: 1.52;
+}
+
+.recipe-card--compact .recipe-card__base-en {
+  font-size: 20rpx;
+}
+
+.recipe-card--compact .recipe-card__notes-section {
+  margin-top: 2rpx;
+}
+
+.recipe-card--compact .recipe-card__note-col {
+  padding: 16rpx 10rpx 14rpx;
+  gap: 10rpx;
+}
+
+.recipe-card--compact .recipe-card__note-badge {
+  font-size: 19rpx;
+  padding: 4rpx 10rpx;
+}
+
+.recipe-card--compact .recipe-card__note-name {
+  font-size: 22rpx;
+  line-height: 1.34;
+}
+
+.recipe-card--compact .recipe-card__note-desc {
+  font-size: 19rpx;
+  line-height: 1.42;
+}
+
+.recipe-card--compact .recipe-card__bottom-row {
+  gap: 22rpx;
+}
+
+.recipe-card--compact .recipe-card__row-head {
+  margin-bottom: 10rpx;
+}
+
+.recipe-card--compact .recipe-card__bar-track {
+  height: 10rpx;
+}
+
+.recipe-card--compact .recipe-card__accent {
+  font-size: 26rpx;
+}
+
+.recipe-card--compact .recipe-card__percent {
+  font-size: 24rpx;
+}
+
+.recipe-card--compact .recipe-card__label {
+  font-size: 22rpx;
+  padding-top: 4rpx;
+  width: 72rpx;
+}
+

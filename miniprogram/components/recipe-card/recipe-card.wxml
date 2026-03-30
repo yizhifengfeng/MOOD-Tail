@@ -1,4 +1,4 @@
-<view class="recipe-card" style="--accent: {{accentColor}}; --accent-glow: {{accentGlow}};">
+<view class="recipe-card {{compact ? 'recipe-card--compact' : ''}}" style="--accent: {{accentColor}}; --accent-glow: {{accentGlow}};">
   <view class="recipe-card__border"></view>
   <view class="recipe-card__body">
     <view class="recipe-card__inner-dots" aria-hidden="true"></view>
@@ -13,10 +13,16 @@
 
     <view class="recipe-card__sep"></view>
 
+    <view class="recipe-card__lead" wx:if="{{summary}}">
+      <text class="recipe-card__summary recipe-card__summary--italic">{{summary}}</text>
+    </view>
+    <view class="recipe-card__sep" wx:if="{{summary}}"></view>
+
     <view class="recipe-card__row">
       <text class="recipe-card__label">基酒</text>
       <view class="recipe-card__main">
-        <text class="recipe-card__serif recipe-card__strong">{{baseName}}</text>
+        <text class="recipe-card__serif recipe-card__strong">{{baseNameCn}}</text>
+        <text class="recipe-card__base-en" wx:if="{{baseNameEn}}">{{baseNameEn}}</text>
         <text class="recipe-card__text">{{baseFlavor}}</text>
       </view>
     </view>
@@ -24,7 +30,6 @@
     <view class="recipe-card__sep recipe-card__sep--dotted"></view>
 
     <view class="recipe-card__notes-section">
-      <text class="recipe-card__notes-kicker">风味层次</text>
       <view class="recipe-card__notes-grid">
         <view class="recipe-card__note-col">
           <view class="recipe-card__note-badge">前调</view>
@@ -62,10 +67,5 @@
       </view>
     </view>
 
-    <view class="recipe-card__sep"></view>
-
-    <view class="recipe-card__footer">
-      <text class="recipe-card__summary recipe-card__summary--italic">{{summary}}</text>
-    </view>
   </view>
 </view>

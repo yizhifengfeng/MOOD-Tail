@@ -1,4 +1,5 @@
 <view class="emotion-slider {{ disabled ? 'emotion-slider--disabled' : '' }} {{ dragging ? 'emotion-slider--dragging' : '' }}">
+  <text class="emotion-slider__hint">滑动情绪滑块选择你的心情指数</text>
   <view class="emotion-slider__labels">
     <text class="emotion-slider__label emotion-slider__label--left">Negative</text>
     <text class="emotion-slider__label emotion-slider__label--right">Positive</text>

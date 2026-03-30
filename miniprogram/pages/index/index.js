@@ -63,6 +63,10 @@ Page({
   onShow() {
     app.checkLoginStatus()
     this.setData({ isLoggedIn: app.globalData.isLoggedIn })
+    if (this._pendingResultNavigation) {
+      this._pendingResultNavigation = false
+      this.setData({ isAnalyzing: false })
+    }
     this.syncGlassStatus()
     this.updateGlassFromSliderOnly()
   },
@@ -212,13 +216,17 @@ Page({
 
       wx.setStorageSync('currentResult', resultData)
 
+      this._pendingResultNavigation = true
       wx.navigateTo({
-        url: '/pages/result/result'
+        url: '/pages/result/result',
+        fail: (err) => {
+          console.error('navigateTo result failed', err)
+          this._pendingResultNavigation = false
+          this.setData({ isAnalyzing: false })
+          this.syncGlassStatus()
+          util.showToast('打开结果页失败')
+        }
       })
-
-      setTimeout(() => {
-        this.setData({ isAnalyzing: false })
-      }, 500)
     } catch (err) {
       console.error('调制失败', err)
       if (this._statusTimer) {
